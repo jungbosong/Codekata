@@ -3,13 +3,9 @@ using System;
 public class Solution {
     public int solution(int n) {
         int answer = 2;
-        for(int i = 2; i <= n-1; i++)
+        while( n % answer != 1)
         {
-            if(n % i == 1)
-            {
-                answer = i;
-                break;
-            }
+            answer++;
         }
         return answer;
     }
