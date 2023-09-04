@@ -1,12 +1,7 @@
+using System;
 public class Solution {
     public long solution(long n) {
-        for(long i = 1; i <= n; i++)
-        {
-            if(i * i == n)
-            {
-                return (i+1)*(i+1);
-            }
-        }
-        return -1;
+        long x = (long)Math.Sqrt(n);
+            return (x*x == n) ? (x+1)*(x+1) : -1;
     }
 }
