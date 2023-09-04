@@ -1,31 +1,11 @@
 public class Solution {
     public int solution(int num) {
-        int answer = 0;
-        long check = num;
-        if(check == 1)
-            return answer;
-        
-        while (true)
+        long lNum = num;
+        for (int i = 0; i < 500; i++)
         {
-            if(answer > 500)
-            {
-                answer = -1;
-                break;
-            }
-            if(check == 1)
-                break;
-            
-            if(check % 2 == 0)
-            {
-                check /= 2;
-            }
-            else
-            {
-                check = check*3 + 1;
-            }
-            answer++;
+            if (lNum == 1) return i;
+            lNum = lNum % 2 == 0 ? lNum / 2 : lNum * 3 + 1;                        
         }
-        
-        return answer;
+        return -1;        
     }
 }
