@@ -1,23 +1,16 @@
 using System;
 
-public class Solution {
-    
-    public int solution(string s) {
-        int answer = 0;
-        
-        s = s.Replace("zero", "0");
-        s = s.Replace("one", "1");
-        s = s.Replace("two", "2");
-        s = s.Replace("three", "3");
-        s = s.Replace("four", "4");
-        s = s.Replace("five", "5");
-        s = s.Replace("six", "6");
-        s = s.Replace("seven", "7");
-        s = s.Replace("eight", "8");
-        s = s.Replace("nine", "9");
-        
-        
-        answer = int.Parse(s);
-        return answer;
+public class Solution 
+{
+    public int solution(string s) 
+    {
+        string[] num = new string[] { "zero", "one", "two", "three", "four", "five", "six", "seven", "eight", "nine"};
+
+        for(int i = 0; i < 10; i++)
+        {        
+            s = s.Replace(num[i], i.ToString());
+        }
+
+        return Int32.Parse(s);
     }
 }
