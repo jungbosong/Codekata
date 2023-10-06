@@ -1,25 +1,26 @@
 using System;
+using System.Collections.Generic;
 
 public class Solution {
     public int[] solution(string s) {
         int[] answer = new int[s.Length];
-        int[] preAlphabetIdx = new int[26];
-        
-        Array.Fill(preAlphabetIdx, -1);
-        
+
+        Dictionary<char, int> dic = new Dictionary<char,int>();
+
         for(int i = 0; i < s.Length; i++)
         {
-            if(preAlphabetIdx[s[i]-'a'] == -1)
+            if(!dic.ContainsKey(s[i]))
             {
-                preAlphabetIdx[s[i]-'a'] = i;
                 answer[i] = -1;
+                dic.Add(s[i], i);
             }
             else
             {
-                answer[i] = i - preAlphabetIdx[s[i]-'a'];
-                preAlphabetIdx[s[i]-'a'] = i;
+                answer[i] = i - dic[s[i]];
+                dic[s[i]] = i;
             }
         }
+
         return answer;
     }
 }
