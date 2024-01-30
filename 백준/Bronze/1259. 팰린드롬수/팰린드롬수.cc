@@ -8,7 +8,7 @@ bool CheckIsPalindromesNumber(string input)
 
 	while (back >= 0)
 	{
-		if (back == input.length() - 1 && input[back] == '0')
+		if (input[input.length() - 1] == '0')
 		{
 			return false;
 		}
