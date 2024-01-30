@@ -1,13 +1,25 @@
 #include <bits/stdc++.h>
 using namespace std;
 
-long long Hashing(int length, string input)
+#define M 1234567891
+#define R 31
+
+unsigned long long Hashing(int length, string input)
 {
-	long long sum = 0;
+	unsigned long long sum = 0;
+
 	for (int i = 0; i < length; i++)
 	{
-		int num = (int)(input.at(i) - 'a') + 1;
-		sum += num * pow(31,i);
+		unsigned long long num = input[i] - 'a' + 1;
+
+		for (int j = 0; j < i; j++)
+		{
+			num *= R;
+			num %= M;
+		}
+		
+		sum += num;
+		sum %= M;
 	}
 	return sum;
 }
