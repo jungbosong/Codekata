@@ -6,9 +6,9 @@ int main()
 	int n;
 	cin >> n;
 
-	float maxScore = 0;
-	vector<float> scores;
-	float score;
+	int maxScore = 0;
+	int sum = 0;
+	int score;
 	for (int i = 0; i < n; i++)
 	{
 		cin >> score;
@@ -16,14 +16,8 @@ int main()
 		{
 			maxScore = score;
 		}
-		scores.push_back(score);
+		sum += score;
 	}
 
-	float sum = 0;
-	for (int i = 0; i < n; i++)
-	{
-		sum += scores[i];
-	}
-
-	cout << sum / maxScore * 100 / n;
+	cout << (float)sum / maxScore * 100.0 / n;
 }
