@@ -22,9 +22,8 @@ int main()
 	float sum = 0;
 	for (int i = 0; i < n; i++)
 	{
-		scores[i] = scores[i] / maxScore * 100;
 		sum += scores[i];
 	}
 
-	cout << sum / n;
+	cout << sum / maxScore * 100 / n;
 }
