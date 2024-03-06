@@ -14,13 +14,11 @@ int main()
 		cards.push(i);
 	}
 	
-	int front;
 	while (cards.size() > 1)
 	{
 		cards.pop();
-		front = cards.front();
+		cards.push(cards.front());
 		cards.pop();
-		cards.push(front);
 	}
 
 	cout << cards.front();
