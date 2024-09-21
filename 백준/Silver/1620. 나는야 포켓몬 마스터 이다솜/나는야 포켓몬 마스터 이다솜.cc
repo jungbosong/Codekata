@@ -33,9 +33,9 @@ int main()
         cin >> question;
 
         // 질문이 숫자일 경우
-        if(question[0] -'0' <= 9)
+        if(atoi(question.c_str()))
         {
-            cout << pokemon_number[stoi(question)] << '\n';
+            cout << pokemon_number[atoi(question.c_str())] << '\n';
         }
         // 질문이 영어일 경우
         else
@@ -46,3 +46,5 @@ int main()
 
     return 0;
 }
+
+// 풀이시간 15분
