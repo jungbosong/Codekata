@@ -29,18 +29,15 @@ int main()
     // 팰린드롬 구하기
     for(auto ac : alphabet_cnt)
     {
-        if(ac.second >= 1)
+        for(int i = 0; i < ac.second / 2; i++)
         {
-            for(int i = 0; i < ac.second / 2; i++)
-            {
-                front += ac.first;
-                back = ac.first + back;
-            }
-            if(ac.second % 2 == 1)
-            {
-                remain += ac.first;
-            }
+            front += ac.first;
+            back = ac.first + back;
         }
+        if(ac.second % 2 == 1)
+        {
+            remain += ac.first;
+        }        
     }
 
     // 결과 출력
