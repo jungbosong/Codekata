@@ -9,7 +9,7 @@ int main()
     cin.tie(NULL);
 
     int k, num;
-    long sum = 0;
+    int sum = 0;
     stack<int> called_num;
     called_num.push(0);
 
