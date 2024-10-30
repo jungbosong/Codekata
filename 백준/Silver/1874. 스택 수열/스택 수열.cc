@@ -1,65 +1,46 @@
 #include <iostream>
-#include <stack>
 #include <vector>
-using namespace std;
+#include <stack>
 
+using namespace std;
 
 int main()
 {
-	ios::sync_with_stdio(false);
-	cin.tie(NULL);
-	cout.tie(NULL);
+    ios::sync_with_stdio(false);
+    cin.tie(NULL);
+    cout.tie(NULL);
 
-	int N;
-	cin >> N;
+    int n;
 
-	vector<int> arr(N, 0);
-	for (int i = 0; i < N; i++)
-	{
-		cin >> arr[i];
-	}
+    cin >> n;
+    vector<int> arr(n);
 
-	stack<int> s;
-	vector<char> answer;
-	int num = 1;
-	bool isPossible = true;
+    for(int i = 0; i < n; i++) {
+        cin >> arr[i];
+    }
 
-	for (int i = 0; i < arr.size(); i++)
-	{
-		if (arr[i] >= num) {
-			while (arr[i] >= num)
-			{
-				s.push(num++);
-				answer.push_back('+');
-			}
-			s.pop();
-			answer.push_back('-');
-		}
-		else
-		{
-			int top = s.top();
-			s.pop();
-			if (top > arr[i])
-			{
-				isPossible = false;
-				break;
-			}
-			else
-			{
-				answer.push_back('-');
-			}
-		}
-	}
+    stack<int> checker;
+    string result = "";
+    int idx = 0;
 
-	if (isPossible)
-	{
-		for (int i = 0; i < answer.size(); i++)
-		{
-			cout << answer[i] << '\n';
-		}
-	}
-	else
-	{
-		cout << "NO";
-	}
+    for(int i = 1; i <= n; i++)
+    {
+        checker.push(i);
+        result += "+\n";
+        
+        while(!checker.empty() && checker.top() == arr[idx]) {
+            checker.pop();
+            result += "-\n";
+            idx++;    
+        }
+    }
+
+    if(checker.empty()) {
+        cout << result;
+    }
+    else {
+        cout << "NO";
+    }
+
+    return 0;
 }
